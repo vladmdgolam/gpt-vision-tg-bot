@@ -57,4 +57,5 @@ The GPT Vision feature allows the bot to generate descriptions for images. Here'
     ```
 
 ## References
-- TBD
+- [OpenAI API](https://platform.openai.com/docs/overview)
+- [OpenAI API Python Client](https://github.com/openai/openai-python)
