@@ -35,12 +35,9 @@ class ChatGPT:
         self,
         message,
         dialog_messages=[],
-        chat_mode="vision",
+        chat_mode="assistant",
         image_buffer: BytesIO = None,
     ):
-        if chat_mode != "vision":
-            raise ValueError(f"Chat mode {chat_mode} is not supported")
-
         n_dialog_messages_before = len(dialog_messages)
         answer = None
         while answer is None:
@@ -84,12 +81,9 @@ class ChatGPT:
         self,
         message,
         dialog_messages=[],
-        chat_mode="vision",
+        chat_mode="assistant",
         image_buffer: BytesIO = None,
     ):
-        if chat_mode != "vision":
-            raise ValueError(f"Chat mode {chat_mode} is not supported")
-
         n_dialog_messages_before = len(dialog_messages)
         answer = None
         while answer is None:

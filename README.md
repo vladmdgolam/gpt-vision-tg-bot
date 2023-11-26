@@ -12,7 +12,7 @@ This repo is a fork-improve of a [@karfly's](https://github.com/karfly) Telegram
 
 ## Features
 - All the features parent has
-- _WIP:_ GPT Vision support
+- GPT Vision support
 
 <p align="center">
   <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYmM2ZWVjY2M4NWQ3ZThkYmQ3MDhmMTEzZGUwOGFmOThlMDIzZGM4YiZjdD1n/unx907h7GSiLAugzVX/giphy.gif" />
@@ -21,6 +21,7 @@ This repo is a fork-improve of a [@karfly's](https://github.com/karfly) Telegram
 ---
 
 ## News
+- *26 Nov 2023*: GPT Vision first version implemented
 - *17 Nov 2023*: Fork created
 
 ## Bot commands
@@ -30,6 +31,14 @@ This repo is a fork-improve of a [@karfly's](https://github.com/karfly) Telegram
 - `/balance` – Show balance
 - `/settings` – Show settings
 - `/help` – Show help
+
+## How to use GPT Vision feature
+
+The GPT Vision feature allows the bot to generate descriptions for images. Here's how you can use it:
+
+1. Use `/settings` command to set proper model (*GPT-4 Vision*)
+2. Send a compressed image and a caption to the bot
+3. Wait for the bot to generate a response based on your input
 
 ## Setup
 1. Get your [OpenAI API](https://openai.com/api/) key

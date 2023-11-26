@@ -280,9 +280,9 @@ async def _vision_message_handle_fn(
     chat_mode = await _user.get_current_chat_mode(user_id)
     current_model = await _user.get_current_model(user_id)
 
-    if current_model != "gpt-4-vision-preview" or chat_mode != "vision":
+    if current_model != "gpt-4-vision-preview":
         await update.message.reply_text(
-            "🥲 Images processing is only available for <b>gpt-4-vision-preview</b> model and <b>vision</b> chat mode. Please change your settings in /settings",
+            "🥲 Images processing is only available for <b>gpt-4-vision-preview</b> model. Please change your settings in /settings",
             parse_mode=ParseMode.HTML,
         )
         return
@@ -582,7 +582,7 @@ async def message_handle(
         await _generate_image_handle(update, context, message=_message)
         return
 
-    if chat_mode == "vision" and update.message.photo is not None and len(update.message.photo) > 0:
+    if update.message.photo is not None and len(update.message.photo) > 0:
         await _vision_message_handle_fn(update, context, use_new_dialog_timeout)
         return
 
