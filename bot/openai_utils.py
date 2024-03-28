@@ -17,7 +17,7 @@ OPENAI_COMPLETION_OPTIONS = {
 
 
 class ChatGPT:
-    def __init__(self, model="gpt-4-vision-preview"):
+    def __init__(self, model="gpt-4-turbo-preview"):
         assert model in {
             "gpt-4-vision-preview", "gpt-4-turbo-preview", "gpt-4", "gpt-3.5-turbo", "gpt-3.5-turbo-16k",
         }, f"Unknown model: {model}"
@@ -324,7 +324,7 @@ class ChatGPT:
         answer = answer.strip()
         return answer
 
-    def _count_tokens_from_messages(self, messages, answer, model="gpt-4-vision-preview"):
+    def _count_tokens_from_messages(self, messages, answer, model="gpt-4-turbo-preview"):
         encoding = tiktoken.encoding_for_model(model)
 
         if model == "gpt-3.5-turbo-16k":
