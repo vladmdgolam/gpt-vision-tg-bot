@@ -129,6 +129,7 @@ dmypy.json
 .pyre/
 
 # Custom
+readme-personal.md
 config/config.yml
 config/config.env
 

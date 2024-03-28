@@ -17,14 +17,9 @@ OPENAI_COMPLETION_OPTIONS = {
 
 
 class ChatGPT:
-    def __init__(self, model="gpt-3.5-turbo"):
+    def __init__(self, model="gpt-4-vision-preview"):
         assert model in {
-            "text-davinci-003",
-            "gpt-3.5-turbo-16k",
-            "gpt-3.5-turbo",
-            "gpt-4",
-            "gpt-4-1106-preview",
-            "gpt-4-vision-preview",
+            "gpt-4-vision-preview", "gpt-4-turbo-preview", "gpt-4", "gpt-3.5-turbo", "gpt-3.5-turbo-16k",
         }, f"Unknown model: {model}"
         self.model = model
         self.aclient = openai.AsyncOpenAI(api_key=config.openai_api_key)
@@ -144,7 +139,7 @@ class ChatGPT:
                     "gpt-3.5-turbo-16k",
                     "gpt-3.5-turbo",
                     "gpt-4",
-                    "gpt-4-1106-preview",
+                    "gpt-4-turbo-preview",
                     "gpt-4-vision-preview",
                 }:
                     messages = self._generate_prompt_messages(
@@ -201,7 +196,7 @@ class ChatGPT:
                     "gpt-3.5-turbo-16k",
                     "gpt-3.5-turbo",
                     "gpt-4",
-                    "gpt-4-1106-preview",
+                    "gpt-4-turbo-preview",
                 }:
                     messages = self._generate_prompt_messages(
                         message, dialog_messages, chat_mode
@@ -329,7 +324,7 @@ class ChatGPT:
         answer = answer.strip()
         return answer
 
-    def _count_tokens_from_messages(self, messages, answer, model="gpt-3.5-turbo"):
+    def _count_tokens_from_messages(self, messages, answer, model="gpt-4-vision-preview"):
         encoding = tiktoken.encoding_for_model(model)
 
         if model == "gpt-3.5-turbo-16k":
@@ -343,7 +338,7 @@ class ChatGPT:
         elif model == "gpt-4":
             tokens_per_message = 3
             tokens_per_name = 1
-        elif model == "gpt-4-1106-preview":
+        elif model == "gpt-4-turbo-preview":
             tokens_per_message = 3
             tokens_per_name = 1
         elif model == "gpt-4-vision-preview":
