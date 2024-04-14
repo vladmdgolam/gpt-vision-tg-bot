@@ -17,9 +17,9 @@ OPENAI_COMPLETION_OPTIONS = {
 
 
 class ChatGPT:
-    def __init__(self, model="gpt-4-turbo-preview"):
+    def __init__(self, model="gpt-4-turbo"):
         assert model in {
-            "gpt-4-vision-preview", "gpt-4-turbo-preview", "gpt-4", "gpt-3.5-turbo", "gpt-3.5-turbo-16k",
+            "gpt-4-turbo", "gpt-4-vision-preview", "gpt-4-turbo-preview", "gpt-4", "gpt-3.5-turbo", "gpt-3.5-turbo-16k",
         }, f"Unknown model: {model}"
         self.model = model
         self.aclient = openai.AsyncOpenAI(api_key=config.openai_api_key)
@@ -139,6 +139,7 @@ class ChatGPT:
                     "gpt-3.5-turbo-16k",
                     "gpt-3.5-turbo",
                     "gpt-4",
+                    "gpt-4-turbo",
                     "gpt-4-turbo-preview",
                     "gpt-4-vision-preview",
                 }:
@@ -197,6 +198,7 @@ class ChatGPT:
                     "gpt-3.5-turbo",
                     "gpt-4",
                     "gpt-4-turbo-preview",
+                    "gpt-4-turbo",
                 }:
                     messages = self._generate_prompt_messages(
                         message, dialog_messages, chat_mode
@@ -324,7 +326,7 @@ class ChatGPT:
         answer = answer.strip()
         return answer
 
-    def _count_tokens_from_messages(self, messages, answer, model="gpt-4-turbo-preview"):
+    def _count_tokens_from_messages(self, messages, answer, model="gpt-4-turbo"):
         encoding = tiktoken.encoding_for_model(model)
 
         if model == "gpt-3.5-turbo-16k":
@@ -339,6 +341,9 @@ class ChatGPT:
             tokens_per_message = 3
             tokens_per_name = 1
         elif model == "gpt-4-turbo-preview":
+            tokens_per_message = 3
+            tokens_per_name = 1
+        elif model == "gpt-4-turbo":
             tokens_per_message = 3
             tokens_per_name = 1
         elif model == "gpt-4-vision-preview":

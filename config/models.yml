@@ -1,10 +1,15 @@
 available_text_models:
-  ["gpt-4-vision-preview", "gpt-4-turbo-preview", "gpt-4", "gpt-3.5-turbo", "gpt-3.5-turbo-16k"]
+  ["gpt-4-turbo", "gpt-4-vision-preview", "gpt-4-turbo-preview", "gpt-4", "gpt-3.5-turbo", "gpt-3.5-turbo-16k"]
 
 info:
+  gpt-4-turbo:
+    type: chat_completion
+    name: GPT-4 Turbo (latest)
+    description: GPT-4 Turbo is a <b>faster</b> and <b>cheaper</b> version of GPT-4.
+
   gpt-4-turbo-preview:
     type: chat_completion
-    name: GPT-4 Turbo
+    name: GPT-4 Turbo Preview
     description: GPT-4 Turbo is a <b>faster</b> and <b>cheaper</b> version of GPT-4.
 
     price_per_1000_input_tokens: 0.01
